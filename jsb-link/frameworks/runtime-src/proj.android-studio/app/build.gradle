@@ -126,5 +126,5 @@ dependencies {
 //    implementation fileTree(dir: '../libs', include: ['*.jar','*.aar'])
 //    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
 //    implementation fileTree(dir: "/Applications/Cocos/Creator/2.4.11/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/java/libs", include: ['*.jar'])
-    implementation project(':libcocos2dx')
+//    implementation project(':libcocos2dx')
 }
