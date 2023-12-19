@@ -1,7 +1,16 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 
 apply plugin: 'com.android.application'
-
+def bid = "com.hello.first"
+def version = "1.0.0"
+def version_code = 1000
+def gameCode = "1.0.0.1"
+def gitCommit = "git rev-parse --short HEAD".execute().text.trim();
+setProperty("archivesBaseName", bid+"_"+version_code+"_"+gameCode+"_"+gitCommit+"_"+releaseDay())
+def static releaseDay()
+{
+    return new Date().format("yyyyMMddHH")
+}
 android {
     compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
     buildToolsVersion PROP_BUILD_TOOLS_VERSION
@@ -10,8 +19,8 @@ android {
         applicationId "org.cocos2d.demo"
         minSdkVersion PROP_MIN_SDK_VERSION
         targetSdkVersion PROP_TARGET_SDK_VERSION
-        versionCode 1
-        versionName "1.0"
+        versionCode version_code
+        versionName version
 
         externalNativeBuild {
             ndkBuild {
